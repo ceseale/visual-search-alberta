@@ -1,0 +1,48 @@
+
+
+<md-dialog aria-label="Welcome to Aired Alberta">
+  <form>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Welcome to Aired Alberta</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="answer('not applicable')">
+        <md-icon aria-label="Close dialog">X</md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-dialog-content>
+
+<p>Use this visual search engine to learn about the publishing and spending habits of the Government of Alberta. This search engine will quickly search through over 70,000 documents and allows insight and understanding through the visual representation of thousands of documents and millions of dollars. As your search changes the app searches for statistically significant relationships between your search and the data so, you can actually make real decisions with your art.</p>
+<h4 style="text-align: center;">Some Tips:</h4>
+
+<div   layout="row" layout-margin layout-fill layout-padding>
+    <div flex>  <p>This button becomes active when the data in view has a statistically significant relationship with your query</p>
+       <section layout="row" layout-sm="column" layout-align="center center">
+        <md-button ng-disabled="true" class="md-raised md-primary">Significant Result !</md-button> 
+    </section>
+          
+   </div>
+
+
+
+    <div flex>  <p>Interact with the data donuts and click the SWITCH button to gain visual perspective on your query.</p>   
+     <paydonut-chart ng-show="metadata.size" data="metadata" slice = "donut1" switch-fn = "donut_switch('donut1')" id="dw" >
+    <p class="title"></p>
+    </paydonut-chart> 
+      </div>
+
+</div>
+
+
+<code> This app works best on Safari for Mac and on Google Chrome for Windows</code>
+
+  </md-dialog-content>
+  <div class="md-actions" layout="row">
+    <span flex></span>
+    <md-button ng-click="answer('useful')" class="md-primary">
+      OKAY, GOT IT!
+    </md-button>
+  </div>
+  </form>
+</md-dialog>

@@ -1,0 +1,217 @@
+.thing-form {
+    margin: 20px 0;
+}
+
+#banner {
+    border-bottom: none;
+    margin-top: -20px;
+}
+
+#banner h1 {
+    font-size: 60px;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.hero-unit {
+    position: relative;
+    padding: 30px 15px;
+    color: #F5F5F5;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+    background: #4393B9;
+}
+
+.footer {
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 70px;
+    border-top: 1px solid #E5E5E5;
+}
+
+#dw {
+    position: absolute;
+    left: 62%;
+    top: 57%;
+}
+
+.entry {
+    opacity: 0;
+}
+
+.table {
+    text-align: center;
+}
+
+#donut2 {
+    position: absolute;
+    left: 79%;
+    top: 1%;
+}
+
+#donut3 {
+    position: absolute;
+    left: 84%;
+    top: 35%;
+}
+
+#donut4 {
+    position: absolute;
+    left: 79%;
+    top: 69%;
+}
+
+#mybut {
+    position: absolute;
+    top: 84%;
+    left: 1%;
+    width: 30%;
+    text-align: center;
+}
+
+.switch {
+    position: absolute;
+    top: 53%;
+    left: 24%;
+}
+
+.culture_people {
+    background-color: rgb(255, 255, 229) !important;
+}
+
+.economics_finnace {
+    background-color: rgb(247, 252, 185) !important;
+}
+
+.education_tech {
+    background-color: rgb(217, 240, 163) !important;
+}
+
+.energy_transportation {
+    background-color: rgb(173, 221, 142) !important;
+}
+
+.environment {
+    background-color: rgb(120, 198, 121) !important;
+}
+
+.government {
+    background-color: rgb(65, 171, 93) !important;
+}
+
+.health {
+    background-color: rgb(35, 132, 67) !important;
+}
+
+.labor {
+    background-color: rgb(0, 104, 55) !important;
+}
+
+.law_order {
+    background-color: rgb(0, 69, 41) !important;
+    color: white !important;
+}
+
+.filtered {
+    opacity: .44;
+}
+
+
+/*.autoco{
+  width: 350px;
+*/
+
+
+/*}*/
+
+md-tabs.md-default-theme.md-accent md-tab-item {
+    color: grey !important;
+}
+
+.close {
+    font-size: 40px !important;
+    font-weight: bold;
+    line-height: 18px;
+    color: #000000;
+    text-shadow: 0 1px 0 #ffffff;
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+    text-decoration: none;
+}
+
+.close:hover {
+    color: #000000;
+    text-decoration: none;
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+    cursor: pointer;
+}
+
+#chart {
+    /*width: 50%;*/
+    /*margin: 0 auto;*/
+    position: absolute;
+    left: 30%;
+    top: 1%;
+}
+
+.md-tab {
+    color: rgb(168, 168, 168);
+}
+
+#donut {
+    margin: 0 auto;
+    left: 33%;
+    position: absolute;
+}
+
+.md-autocomplete-suggestions {
+    width: 350px;
+    word-wrap: break-word !important;
+    opacity: .84 !important;
+}
+
+.meta-stats {
+    position: absolute;
+    right: 1%;
+    top: 31%;
+    font-size: 24px;
+    word-wrap: break-word;
+    width: 160px;
+}
+
+.node {
+    stroke-width: 1.5px;
+}
+
+.demo-container {
+    display: block;
+}
+
+#demo {
+    position: absolute;
+    top: 4%;
+    left: 1%;
+    width: 30%;
+    z-index: 0;
+}
+
+.scale {
+    float: right;
+}
+
+md-tabs.md-default-theme.md-accent md-tabs-wrapper {
+    background-color: rgb(54, 103, 30);
+}
+
+#tab-content-002 {
+    background-color: #42A5F5;
+}
+
+#tab-content-003 {
+    background-color: #689F38;
+}
+
+#tab-content-004 {
+    background-color: #26C6DA;
+}

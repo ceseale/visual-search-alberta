@@ -1,0 +1,116 @@
+
+
+<md-dialog aria-label="Results of Chi-Squared for Independence Test">
+  <form>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Results of Chi-Squared for Independence Test</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="answer('not applicable')">
+        <md-icon aria-label="Close dialog">X</md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-dialog-content>
+
+<h3>Total = {{metadata.size}}</h3>
+
+<!--  <p><strong>Page:</strong> {{tableParams.page()}}
+
+    <p><strong>Count per page:</strong> {{tableParams.count()}} -->
+<div ng-hide = "p_val2 > alpha">
+  <h4>Link Status vs. Category </h4>
+    <table ng-table="tableParams" class="table">
+          <tr ng-repeat="user in table2">
+              <td data-title="'Link Status'">
+                  {{user.status.value}}
+              </td>
+              <td data-title="display_names['education_tech']">
+                  {{user.education_tech.value}}
+              </td>
+              <td data-title="display_names['culture_people']">
+                  {{user.culture_people.value}}
+              </td>
+              <td data-title="display_names['economics_finnace']">
+                  {{user.economics_finnace.value}}
+              </td>
+              <td data-title="display_names['energy_transportation']">
+                  {{user.energy_transportation.value}}
+              </td>
+              <td data-title="display_names['environment']">
+                  {{user.environment.value}}
+              </td>
+              <td data-title="display_names['government']">
+                  {{user.government.value}}
+              </td>
+              <td data-title="display_names['health']">
+                  {{user.health.value}}
+              </td>
+              <td data-title="display_names['labor']">
+                  {{user.labor.value}}
+              </td>
+              <td data-title="display_names['law_order']">
+                  {{user.law_order.value}}
+              </td>
+          </tr>
+      </table>
+
+<code>p-value = {{p_val2}}</code> 
+<p>The above table shows the layout that was used to test for the independence of Woring Links and the frequency of documents in each category. Because the p-value is very small, less than {{alpha}}, it is unlikely that the frequency of of publications relative to the current search query is independent of Link Status. This means that some categories are more likey to be working or not working than others. You can download this data using the <code>Export Tab</code> to do more analysis and discover more about the publishing habits of Alberta.</p>
+</div>
+
+<div ng-hide = "p_val1 > alpha">
+<h4>Year vs. Category </h4>
+    <table ng-table="tableParams" class="table">
+        <tr ng-repeat="user in table1">
+            <td data-title="'Year'">
+                {{user.year.value}}
+            </td>
+            <td data-title="display_names['education_tech']">
+                {{user.education_tech.value}}
+            </td>
+            <td data-title="display_names['culture_people']">
+                {{user.culture_people.value}}
+            </td>
+            <td data-title="display_names['economics_finnace']">
+                {{user.economics_finnace.value}}
+            </td>
+            <td data-title="display_names['energy_transportation']">
+                {{user.energy_transportation.value}}
+            </td>
+            <td data-title="display_names['environment']">
+                {{user.environment.value}}
+            </td>
+            <td data-title="display_names['government']">
+                {{user.government.value}}
+            </td>
+            <td data-title="display_names['health']">
+                {{user.health.value}}
+            </td>
+            <td data-title="display_names['labor']">
+                {{user.labor.value}}
+            </td>
+            <td data-title="display_names['law_order']">
+                {{user.law_order.value}}
+            </td>
+        </tr>
+    </table>
+<code>p-value = {{p_val1}}</code> 
+
+<p>The above table shows the layout that was used to test for the independence of Years and the frequency of documents in each category. Because the p-value is very small, less than {{alpha}}, it is unlikely that the frequency of of publications relative to the current search query is independent of Year. This means that year is somewhat predictive of the amount of documents being published by the government in at least one of the categories. You can download this data using the <code>Export Tab</code> to do more analysis and discover more about the publishing habits of Alberta. </p>
+</div>
+
+
+
+  </md-dialog-content>
+  <div class="md-actions" layout="row">
+    <md-button href="https://en.wikipedia.org/wiki/Chi-squared_test" target="_blank" show-md>
+      More on Chi-squared test
+    </md-button>
+    <span flex></span>
+    <md-button ng-click="answer('useful')" class="md-primary">
+      OKAY
+    </md-button>
+  </div>
+  </form>
+</md-dialog>

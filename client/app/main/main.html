@@ -1,0 +1,103 @@
+<div class="entry">
+    <div id="demo" layout="column">
+        <div  class="demo-container md-whiteframe-z4 show-source">
+            <md-content layout-padding class="autoco" layout="column">
+            <form ng-enter="customTags(searchText)" ng-submit="$event.preventDefault()" >
+                <p>Interact, explore, and analyze 4,181 Government documents beautifully.</p>
+                <md-button class="md-raised md-primary" ng-disabled="onPay" href="/paysearch" target="_self">Search Expenses</md-button>
+                <md-button class="md-raised md-primary" ng-disabled="onDoc" href="/" target="_self">Search Documents</md-button>
+                <md-autocomplete
+                ng-disabled="isDisabled"
+                md-no-cache="noCache"
+                md-selected-item="selectedItem"
+                md-search-text-change="searchTextChange(searchText)"
+                md-search-text="searchText"
+                md-selected-item-change="selectedItemChange(item)"
+                md-items="item in querySearch(searchText)"
+                md-item-text="item.title || item.description"
+                md-min-length="0"
+                placeholder="Which government documents are you looking for?">
+                <md-item-template>
+                <span md-highlight-text="searchText" md-highlight-flags="^i" >{{item.title}}</span>
+                </md-item-template>
+                <md-not-found>
+                Press enter to search.
+                </md-not-found>
+                </md-autocomplete>
+                <br/>
+                <div><md-chips  ng-model="customs" ng-click="searchText = '';" placeholder="+Filter"  secondary-placeholder="Add Custom Text Filter" ></md-chips></div>
+                <md-content class="md-primary">
+                <md-tabs style="background-color: blue;" class="md-primary" md-selected="data.selectedIndex" md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
+                <md-tab id="tab1" style="background-color: #42A5F5;">
+                <md-tab-label>Filters</md-tab-label>
+                <md-tab-body>
+
+                <!-- Content for tab1  -->
+                <section layout="row" layout="row" layout-wrap>
+                    <md-button class="md-raised" ng-repeat="filter in display.filters track by $index" ng-click="filtered(filter, $index)" ng-style="getStylish(filter)" ng-class="displayClass(filter)">{{filter.name}}</md-button>
+                </section>
+                </md-tab-body>
+                </md-tab>
+                <md-tab id="tab2" ng-disabled="data.secondLocked">
+                <md-tab-label>Your Items</md-tab-label>
+                <md-tab-body>
+                <!-- Content for tab2  -->
+                <md-card ng-show="!selected.length">
+                <md-card-content>
+                <h2>You haven't added any documents yet! Select a document from your query to add it to Your Items.</h2>
+                </md-card-content>
+                </md-card>
+                <md-card ng-repeat="item in selected track by $index">
+                <md-card-content>
+                <a ng-click="removeSelected($index)" class="close">×</a>
+                <h3 class=".md-body-2">{{item.title}}</h3>
+                <p class=".md-caption">Year: {{item.year}}</p>
+                <p>Department: {{item.dept}}</p>
+                <p>Medium: {{item.medium}} Status: {{item.status}} Link: {{item.address}}</p>
+                </md-card-content>
+                </md-card>
+                </md-tab-body>
+                </md-tab>
+                <md-tab id="tab3">
+                <md-tab-label>Export</md-tab-label>
+                <md-tab-body>
+
+                <section layout="row" layout="row" layout-wrap>
+                    <md-button class="md-raised" target="_self"  href="/api/yourdatas/download" ng-disabled="!selected.length">Your Data</md-button>
+                    <md-button class="md-raised" target="_self"  href="/api/things/yourdata" ng-disabled="!metadata.size">Download Current Query</md-button>
+                </section>
+                </md-tab-body>
+                </md-tab>
+                </md-tabs>
+                </md-content>
+                <div class="md-padding" layout="row" layout-sm="column" layout-align="left center"
+                    style="padding-top: 0;">
+                </div>
+                <a ng-click="showWelcome()"class="help">?</a>
+                <a href="https://twitter.com/share" class="twitter-share-button" data-text="Visual search engine for the documents of Alberta">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                <div class="scale" > <p>&#9898; = {{scale}} document(s)</p> </div>
+                <!--     <p style="padding-left: 15px;">This Web App had the best preformce best in Safari. It also works well in Google Chrome. It was created for the Apps for Alberta Challange using <a href="http://bit.ly/1FGMo1e"> this </a> dataset. </p> -->
+            </form>
+            </md-content>
+        </div>
+    </div>
+    <div>
+        <svg id="chart" width="1280" height="800"
+        viewBox="0 0 1280 800"
+        preserveAspectRatio="xMidYMid meet">
+    <main-donut ng-show="metadata.size" metadata ="metadata" vis="mainDonut" customs ="customs" customnodes="customNodes" metasignal = "upDateMain" id='dots' scale='scale'></main-donut>
+    </svg>
+    <donut-chart ng-show="metadata.size" data="metadata" id="donut2" slice = "donut1" switch-fn = "donut_switch('donut1')" >
+    </donut-chart>
+    <donut-chart data="metadata" ng-show="metadata.size" id="donut3" slice = "donut2" switch-fn = "donut_switch('donut2')" >
+    <p class="title"></p>
+    </donut-chart>
+    <donut-chart data="metadata" ng-show="metadata.size" id="donut4" slice = "donut3" switch-fn = "donut_switch('donut3')" >
+    <p class="title"></p>
+    </donut-chart>
+    <div id="mybut">
+        <h3>Statistical Analysis</h3>
+        <md-button ng-click="showAdvanced($event)" ng-disabled="p_val1 > alpha && p_val2 > alpha" class="md-raised md-primary">Significant Result !</md-button>
+    </div>
+</div>
+</div>

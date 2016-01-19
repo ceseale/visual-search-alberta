@@ -1,0 +1,42 @@
+
+
+<md-dialog aria-label="Results of Chi-Squared for Independence Test">
+  <form>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Results for Significant Difference Tests</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="answer('not applicable')">
+        <md-icon aria-label="Close dialog">X</md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-dialog-content>
+<h2>Data by {{graph.selected}}</h2>
+<div id="test1" >
+    <svg></svg>
+</div>
+
+      <md-select ng-model="graph.selected">
+
+        <md-option ng-repeat="op in graph.options" value="{{op}}">{{op}}</md-option>
+      </md-select>
+
+        <md-select ng-model="graph.selectedSig">
+
+        <md-option ng-repeat="op in graph.sigOptions" value="{{op}}">{{op}}</md-option>
+      </md-select>
+<p> This graph show the result of mulitple t tests on the payments related to your search. The radius of each circle is proportional to the spending Standard error. Use this tool to identify interesting payment patterns and find relationships between categories and spending behavior. Differences are deemed statisically different if they produce a p-value less than .05. The lower the p-value the more exterme the differnce.</p>
+
+  </md-dialog-content>
+  <div class="md-actions" layout="row">
+    <md-button href="https://en.wikipedia.org/wiki/Statistical_hypothesis_testing" target="_blank">
+      More on Statistical Hypothesis Tests
+    </md-button>
+    <span flex></span>
+    <md-button ng-click="answer('useful')" class="md-primary">
+      OKAY
+    </md-button>
+  </div>
+  </form>
+</md-dialog>
