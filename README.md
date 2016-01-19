@@ -3,7 +3,7 @@
 A visual search engine for government documents created for the Apps for Alberta Hackathon. AiredAlberta aggregates government documents into an interactive searching experience. Built with Node.js, Express.js and Angularjs to create a fast single page application. It uses an auto statistics function that detects abnormal publishing patterns in the current search result.
 
 
-[demo](https://nhtsa.herokuapp.com/)
+[demo](https://aired-alberta.herokuapp.com/)
 ![Alt Text](https://github.com/ceseale/visual-search-alberta/raw/master/pic.jpg)
 
 ## Getting Started
